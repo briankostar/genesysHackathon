@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 class Nav extends Component {
     render() {
@@ -9,24 +10,24 @@ class Nav extends Component {
                         Modules
             </a>
                     <div className="navbar-dropdown">
-                        <a className="navbar-item">
+                        <Link to="/statistics" className="navbar-item">
                             Statistics
-              </a>
-                        <a className="navbar-item">
+                        </Link>
+                        <Link to="/funny" className="navbar-item">
                             Funny
-              </a>
-                        <a className="navbar-item">
+                        </Link>
+                        <Link to="/incentives" className="navbar-item">
                             Incentives
-              </a>
-                        <a className="navbar-item">
+                        </Link>
+                        <Link to="/tips" className="navbar-item">
                             Tips
-              </a>
-                        <a className="navbar-item">
+                        </Link>
+                        <Link to="/guide" className="navbar-item">
                             Protocol Guide
-              </a>
-                        <a className="navbar-item">
+                        </Link>
+                        <Link to="/transcript" className="navbar-item">
                             Live Transcript
-              </a>
+                        </Link>
                     </div>
                 </div>
             </nav>
