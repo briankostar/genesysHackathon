@@ -12,6 +12,7 @@ class ModuleLoader extends Component {
     constructor(props) {
         super(props)
         this.state = { agentStatus: 'READY' }
+        this.props.history.push('/statistics')
     }
 
     initializeWebPage = () => {
@@ -50,7 +51,7 @@ class ModuleLoader extends Component {
             case 'READY':
                 console.log('switch to ready');
                 this.updateAgentState(msg.data.type);
-                // this.props.history.push('/guide')
+                this.props.history.push('/guide')
                 break;
             case 'NOT_READY':
                 console.log('switch to not ready')

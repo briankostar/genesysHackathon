@@ -4,7 +4,7 @@ class Guide extends Component {
     render() {
         return (
             <div className="container">
-                Guide
+                <h2 className="is-size-3"> Guide </h2>
             </div>
         )
     }

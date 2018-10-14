@@ -27,3 +27,7 @@ code {
   /* background-color: #73a6ff; */
   background-color: #d2e2ff;
 }
+
+.navbar {
+  border-bottom: 2px solid black;
+}

@@ -4,7 +4,7 @@ class Incentives extends Component {
     render() {
         return (
             <div className="container">
-                Incentives
+                <h2 className="is-size-3"> Incentives </h2>
             </div>
         )
     }

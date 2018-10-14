@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+const imgStyle = {
+    width: '650px'
+};
+
 class Funny extends Component {
     constructor(props) {
         super(props);
@@ -22,7 +26,8 @@ class Funny extends Component {
     render() {
         return (
             <div className="container">
-                <img onClick={this.loadMeme} src={this.state.meme} />
+                <h2 className="is-size-3"> Funny </h2>
+                <img style={imgStyle} onClick={this.loadMeme} src={this.state.meme} />
             </div>
         )
     }
