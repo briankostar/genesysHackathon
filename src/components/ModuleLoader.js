@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Default from './Default'
 import Statistics from './Statistics'
 import Funny from './Funny'
@@ -49,14 +49,17 @@ class ModuleLoader extends Component {
             case 'READY':
                 console.log('switch to ready');
                 this.updateAgentState(msg.data.type);
+                this.props.history.push('/guide')
                 break;
             case 'NOT_READY':
                 console.log('switch to not ready')
                 this.updateAgentState(msg.data.type);
+                this.props.history.push('/')
                 break;
             case 'NOT_READY_AFTER_CALLWORK':
                 console.log('switch to not ready after callwork')
                 this.updateAgentState(msg.data.type);
+                this.props.history.push('/funny')
                 break;
             default:
         }
@@ -67,10 +70,9 @@ class ModuleLoader extends Component {
     }
 
     componentDidMount = () => {
-        console.log('component mounted')
-
         this.initializeWebPage();
     }
+
     render() {
         return (
             <div className={'moduleLoader ' + this.state.agentStatus.toLocaleLowerCase()}>
@@ -78,15 +80,15 @@ class ModuleLoader extends Component {
                 <br />
                 {this.state.agentStatus}
                 <Route exact={true} path='/' render={(props) => <Default {...props} title={'Root'} />} />
-                <Route exact={true} path='/statistics' render={(props) => <Statistics {...props} title={'Root'} />} />
+                <Route exact={true} path='/transcript' render={(props) => <Transcript {...props} title={'Root'} />} />
                 <Route exact={true} path='/funny' render={(props) => <Funny {...props} title={'Root'} />} />
-                <Route exact={true} path='/incentives' render={(props) => <Incentives {...props} title={'Root'} />} />
                 <Route exact={true} path='/tips' render={(props) => <Tips {...props} title={'Root'} />} />
                 <Route exact={true} path='/guide' render={(props) => <Guide {...props} title={'Root'} />} />
-                <Route exact={true} path='/transcript' render={(props) => <Transcript {...props} title={'Root'} />} />
+                <Route exact={true} path='/statistics' render={(props) => <Statistics {...props} title={'Root'} />} />
+                <Route exact={true} path='/incentives' render={(props) => <Incentives {...props} title={'Root'} />} />
             </div>
         )
     }
 }
 
-export { ModuleLoader };
+export default withRouter(ModuleLoader);

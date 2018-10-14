@@ -10,14 +10,11 @@ class Nav extends Component {
                         Modules
                     </a>
                     <div className="navbar-dropdown">
-                        <Link to="/statistics" className="navbar-item">
-                            Statistics
+                        <Link to="/transcript" className="navbar-item">
+                            Live Transcript
                         </Link>
                         <Link to="/funny" className="navbar-item">
                             Funny
-                        </Link>
-                        <Link to="/incentives" className="navbar-item">
-                            Incentives
                         </Link>
                         <Link to="/tips" className="navbar-item">
                             Tips
@@ -25,9 +22,17 @@ class Nav extends Component {
                         <Link to="/guide" className="navbar-item">
                             Protocol Guide
                         </Link>
-                        <Link to="/transcript" className="navbar-item">
-                            Live Transcript
+                        <Link to="/statistics" className="navbar-item">
+                            Statistics
                         </Link>
+                        <Link to="/incentives" className="navbar-item">
+                            Incentives
+                        </Link>
+
+                        <hr className="navbar-divider" />
+                        <div>
+                            <i className="fas fa-plus"></i>
+                        </div>
                     </div>
                 </div>
             </nav>

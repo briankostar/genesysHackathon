@@ -5,7 +5,6 @@
  * FILE NAME:          wwe-service-client-api.js
  */
 /* jshint maxdepth:8 */
-console.log('loading WWE!')
 if (!window.genesys) { window.genesys = {}; }
 if (!window.genesys.wwe) { window.genesys.wwe = {}; }
 if (!window.genesys.wwe.service) {
@@ -200,7 +199,7 @@ if (!window.genesys.wwe.service) {
         var receiveMessage = function (message) {
             if (message && message.data && message.data.userAgent && message.data.userAgent.indexOf("WWE") != -1) {
 
-                if (debug && (typeof JSON !== 'undefined') && JSON.stringify) { console.log("ServiceClientAPI: receiveMessage: " + JSON.stringify(message.data, null, '\t')); }
+                // if (debug && (typeof JSON !== 'undefined') && JSON.stringify) { console.log("ServiceClientAPI: receiveMessage: " + JSON.stringify(message.data, null, '\t')); }
                 if (message.data.event) {
                     // We receive a subscribed event
                     var subscription = subscriptionsByEventName[message.data.event];

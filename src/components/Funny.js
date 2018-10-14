@@ -4,7 +4,7 @@ class Funny extends Component {
     render() {
         return (
             <div>
-                Funny
+                <img src="./meme1.jpg" />
             </div>
         )
     }

@@ -4,7 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
 import { Nav } from './components/Nav'
-import { ModuleLoader } from './components/ModuleLoader'
+import ModuleLoader from './components/ModuleLoader'
+// const customHistory = createBrowserHistory()
+// import { Router } from 'react-router'
+// import createBrowserHistory from 'history/createBrowserHistory'
+
+// const history = createBrowserHistory()
 
 class App extends Component {
   render() {
