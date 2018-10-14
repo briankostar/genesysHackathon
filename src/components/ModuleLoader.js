@@ -18,7 +18,8 @@ class ModuleLoader extends Component {
         // Subscribe to Workspace Web Edition
         console.log('initializeWebPage', window.genesys.wwe.service)
         // window.genesys.wwe.service.subscribe(["agent", "interaction", "media", "system", "markdone"], this.eventHandler, this);
-        window.genesys.wwe.service.subscribe(["agent", "interaction", "media", "system", "markdone"], this.handleAgentEvent, this);
+        window.genesys.wwe.service.subscribe("agent", this.handleAgentEvent, this);
+        window.genesys.wwe.service.subscribe("interaction", this.handleInteractionEvent, this);
         // window.genesys.wwe.service.subscribe("agent", this.handleAgentEvent, this);
     }
     eventHandler = (message) => {
@@ -49,7 +50,7 @@ class ModuleLoader extends Component {
             case 'READY':
                 console.log('switch to ready');
                 this.updateAgentState(msg.data.type);
-                this.props.history.push('/guide')
+                // this.props.history.push('/guide')
                 break;
             case 'NOT_READY':
                 console.log('switch to not ready')
@@ -60,6 +61,17 @@ class ModuleLoader extends Component {
                 console.log('switch to not ready after callwork')
                 this.updateAgentState(msg.data.type);
                 this.props.history.push('/funny')
+                break;
+            default:
+        }
+
+    }
+    handleInteractionEvent = (msg) => {
+        console.log(msg, typeof msg)
+        switch (msg.data.eventType) {
+            case 'ESTABLISHED':
+                console.log('Connection established');
+                this.props.history.push('/transcript')
                 break;
             default:
         }

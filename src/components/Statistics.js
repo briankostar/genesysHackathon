@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
+const imgStyle = {
+    height: '450px'
+};
+
 class Statistics extends Component {
     render() {
         return (
             <div>
-                Statistics
+                <img src="./stats1.png" style={imgStyle} />
             </div>
         )
     }
