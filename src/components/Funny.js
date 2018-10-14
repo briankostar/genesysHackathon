@@ -21,7 +21,7 @@ class Funny extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <img onClick={this.loadMeme} src={this.state.meme} />
             </div>
         )

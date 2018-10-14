@@ -13,7 +13,7 @@ class Transcript extends Component {
         return (
             <div>
                 <video ref='videoPlayer' onClick={this.playVideo}>
-                    <source src="./Transcript.mp4" type="video/mp4" />
+                    <source src="./Transcript2.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>

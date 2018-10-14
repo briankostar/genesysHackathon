@@ -88,9 +88,9 @@ class ModuleLoader extends Component {
     render() {
         return (
             <div className={'moduleLoader ' + this.state.agentStatus.toLocaleLowerCase()}>
-                Module Loader
-                <br />
-                {this.state.agentStatus}
+                {/* Module Loader */}
+                {/* <br /> */}
+                {/* {this.state.agentStatus} */}
                 <Route exact={true} path='/' render={(props) => <Default {...props} title={'Root'} />} />
                 <Route exact={true} path='/transcript' render={(props) => <Transcript {...props} title={'Root'} />} />
                 <Route exact={true} path='/funny' render={(props) => <Funny {...props} title={'Root'} />} />
