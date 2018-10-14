@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Nav extends Component {
     render() {
@@ -8,7 +8,7 @@ class Nav extends Component {
                 <div className="navbar-item has-dropdown is-hoverable">
                     <a className="navbar-link">
                         Modules
-            </a>
+                    </a>
                     <div className="navbar-dropdown">
                         <Link to="/statistics" className="navbar-item">
                             Statistics
