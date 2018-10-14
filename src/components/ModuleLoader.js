@@ -9,17 +9,23 @@ import Guide from './Guide'
 import Transcript from './Transcript'
 
 class ModuleLoader extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { agentStatus: 'READY' }
+    }
+
     initializeWebPage = () => {
         // Subscribe to Workspace Web Edition
         console.log('initializeWebPage', window.genesys.wwe.service)
         // window.genesys.wwe.service.subscribe(["agent", "interaction", "media", "system", "markdone"], this.eventHandler, this);
-        window.genesys.wwe.service.subscribe("agent", this.handleAgentEvent, this);
+        window.genesys.wwe.service.subscribe(["agent", "interaction", "media", "system", "markdone"], this.handleAgentEvent, this);
+        // window.genesys.wwe.service.subscribe("agent", this.handleAgentEvent, this);
     }
     eventHandler = (message) => {
         switch (message.event) {
             case "agent":
-                // console.log("Received agent event: " + JSON.stringify(message, null, "\t"));
-                this.handleAgentEvent(message)
+                console.log("Received agent event: " + JSON.stringify(message, null, "\t"));
+                // this.handleAgentEvent(message)
                 break;
             case "interaction":
                 console.log("Received interaction event: " + JSON.stringify(message, null, "\t"));
@@ -41,16 +47,23 @@ class ModuleLoader extends Component {
         console.log(msg, typeof msg)
         switch (msg.data.type) {
             case 'READY':
-                console.log('switch to ready')
+                console.log('switch to ready');
+                this.updateAgentState(msg.data.type);
                 break;
             case 'NOT_READY':
                 console.log('switch to not ready')
+                this.updateAgentState(msg.data.type);
                 break;
             case 'NOT_READY_AFTER_CALLWORK':
                 console.log('switch to not ready after callwork')
+                this.updateAgentState(msg.data.type);
                 break;
             default:
         }
+    }
+
+    updateAgentState = (status) => {
+        this.setState({ agentStatus: status })
     }
 
     componentDidMount = () => {
@@ -60,8 +73,10 @@ class ModuleLoader extends Component {
     }
     render() {
         return (
-            <div>
+            <div className={'moduleLoader ' + this.state.agentStatus.toLocaleLowerCase()}>
                 Module Loader
+                <br />
+                {this.state.agentStatus}
                 <Route exact={true} path='/' render={(props) => <Default {...props} title={'Root'} />} />
                 <Route exact={true} path='/statistics' render={(props) => <Statistics {...props} title={'Root'} />} />
                 <Route exact={true} path='/funny' render={(props) => <Funny {...props} title={'Root'} />} />

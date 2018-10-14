@@ -12,3 +12,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.moduleLoader{
+  height: 100vh;
+}
+
+/* .ready {
+  background-color: #a0d500;
+}
+.not_ready {
+  background-color: #fbbc00;
+} */
+.not_ready_after_callwork {
+  /* background-color: #73a6ff; */
+  background-color: #d2e2ff;
+}
